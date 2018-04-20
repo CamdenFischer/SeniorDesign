@@ -6,9 +6,9 @@ var connectionOptions = {
     "transports" : ["websocket"]
 };
 
-socketio_url = 'http://infragram.org';
+var socketio_url = 'https://infragram.org';
 
-var socket = io.connect(socketio_url, connectionOptions);
+var socket = io.connect(socketio_url);
 
 var sampleImg = new Image();
 sampleImg.src = 'sample_pic.jpg';
@@ -21,4 +21,14 @@ socket.on('connect', function(){
 
 socket.on('connect_error', function(){
     console.log('socket.io client error connection');
+});
+
+socket.emit('image_send', {data: sampleImg.src, size:  sampleImg.size});
+
+socket.on('thumbnail_done', function(data){
+
+});
+
+socket.on('image_done', function(data){
+
 });

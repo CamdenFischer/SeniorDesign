@@ -3,6 +3,7 @@
   "version": "",
   "dependencies": {
     "express": "^4.16.3",
+    "requests": "^0.2.2",
     "socket.io": "^2.1.0"
   }
 }
